@@ -19,14 +19,14 @@ body {
 /* || typography */
 
 h1, h2, h3 {
-  font-family: 'Odibee Sans', cursive;
-  font-weight:bold;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight:700;
   color: #2a2a2a;
 }
 
 p, input, li {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: normal;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight:400;
   color: #2a2a2a;
 }
 
