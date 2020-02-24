@@ -1,4 +1,48 @@
+/*General Setup */
 html, body {
     margin: 0;
     padding: 0;
   }
+  
+  html {
+    font-size: 10px;
+    background-color: #190707;
+  }
+  title{font-size: 50px;
+    background-color: antiquewhite;
+      
+  }
+  body {
+    width: 70%;
+    min-width: 800px;
+    margin: 0 auto;
+    color: whitesmoke
+  }
+
+  /* || header layout */
+
+header {
+    margin:0;
+    padding: 0;
+    margin-bottom: 10px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  div.header img {
+      left: 15px;
+  }
+ .vertical-center{
+     margin: 0;
+     position: absolute;
+     top: 50%;
+
+ }
+
+ header img {
+    display: block;
+    height: 60px;
+    padding-top: 20.15px;
+    position:right;
+    
+  }
+  
