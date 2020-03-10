@@ -13,9 +13,7 @@
           Click me to make a change
         </button>
         <div class="content">
-          <p class="name"></p>
-          
-            <p class="character"></p>
+        
          
           <p>
             Retro fam narwhal hoodie meggings viral bushwick yr chartreuse.
@@ -32,6 +30,9 @@
       function clickMe() {
         const content = document.querySelector(".content");
         content.innerHTML = "Hello world";
+        const name = document.querySelector("p.name")
+        name.textContent = "hi";
+
         
       }
     </script>

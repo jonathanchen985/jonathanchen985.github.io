@@ -1,3 +1,6 @@
+
+
+
 const myHeader = document.querySelector('.header');
 myHeader.textContent = "Jonathan Chen's Lab 4";
 
@@ -14,7 +17,7 @@ myCharacter.textContent = "the third character in my name is " + letter.charAt(2
 myCharacter.textContent += '\r\n' + line;
 
 let firstname = string.substring(0,7);
-let lastname = string.substring(8,13);
+let lastname = string.substring(8,13);  
 var length = firstname.length;
 var length2 = lastname.length;
 var total = length + length2;
