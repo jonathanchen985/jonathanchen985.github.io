@@ -11,7 +11,7 @@
     <div class="wrapper">
       <div class="header">List of Countries</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button class="button" onclick="createList()">Click me to replace list
+      <button class="button" onclick="clickMe()">Click me to replace list
         entries</button>
       <div class="content">
         <ul class="instructions">
@@ -283,19 +283,9 @@
     ]
     console.log("List of countries in the world", countries);
     
-    function createList() {
-    const myHeader =document.querySelector('.header');
-    myHeader.textContent="Jonathan Chen's list of countries";
-
-    const myContent= document.querySelector('.content');
-    myContent.removeChild(myContent.lastElementChild);
-    var myList = document.createElement('ol');
-    myList.classList.add("countries");
-    myContent.appendChild(myList);
     
-
-}
   </script>
+  <script src="main.js"></script>
 </body>
 
 </html>

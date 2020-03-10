@@ -1,4 +1,4 @@
-function createList() {
+function clickMe() {
     const myHeader =document.querySelector('.header');
     myHeader.textContent="Jonathan Chen's list of countries";
 
@@ -7,7 +7,9 @@ function createList() {
     var myList = document.createElement('ol');
     myList.classList.add("countries");
     myContent.appendChild(myList);
-    var countryList =
+    myList.getElementsByClassName('countries').innerHTML=countries;
+   
+
     
 
 }
@@ -15,10 +17,12 @@ function createList() {
 function randomCountries(){ 
 numbers=[];
 var i;
-for (i= 0, i<25; i++){
+for (let i= 0; i<25; i++){
     numbers=math.floor(math.random()*242)+1;
+    random.push(numbers);
 }
 
+document.getElementsByClassName('countries').innerHTML=numbers
 }
 
 
