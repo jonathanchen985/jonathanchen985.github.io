@@ -4,6 +4,10 @@
 const myHeader = document.querySelector('.header');
 myHeader.textContent = "Jonathan Chen's Lab 4";
 
+var p1=document.createElement('p');
+p1.
+name.innerHTML=
+
 const myName = document.querySelector('.name');
 myName.textContent = 'my name has 12 characters';
 
