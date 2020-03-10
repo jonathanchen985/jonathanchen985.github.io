@@ -13,6 +13,7 @@ function createList() {
 }
 
 function randomCountries(){ 
+    numbers=[math.ra]
 
 }
 
