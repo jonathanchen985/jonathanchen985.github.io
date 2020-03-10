@@ -13,6 +13,11 @@ function createList() {
 }
 
 function randomCountries(){ 
+numbers=[];
+var i;
+for (i= 0, i<25; i++){
+    numbers=math.floor(math.random()*242)+1;
+}
 
 }
 
