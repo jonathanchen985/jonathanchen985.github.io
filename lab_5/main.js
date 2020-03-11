@@ -21,8 +21,11 @@ for (let i= 0; i<25; i++){
     numbers=math.floor(math.random()*242)+1;
     random.push(numbers);
 }
+for (i=0;  i<25; i++ ){
+    numbers=countries;
 
-document.getElementsByClassName('countries').innerHTML=numbers
+}
+
 }
 
 
