@@ -27,15 +27,50 @@
       </div>
     </div>
     <script>
+      const myHeader = document.querySelector(".header");
+      myHeader.innerHTML= "Jonathan Chen's Lab 4";
+
+      let string = "Jonathan Chen";
+
       function clickMe() {
+   
+      const myName = document.createElement("p");
+      myName.className="name";
+
+        const myCharacter = document.createElement('p');
+        myCharacter.className="character";
+
+        var line = document.createElement("br");
+
+        var newLine = document.createTextNode(
+          "my name has 12 characters"
+        );
+        myName.appendChild(newLine);
+        var newLine2 = document.createTextNode("the third character in my name is " +string[2].toUpperCase());
+        myCharacter.appendChild(newLine2);
+        
         const content = document.querySelector(".content");
         content.innerHTML = "Hello world";
-        const name = document.querySelector("p.name")
-        name.textContent = "hi";
-
         
+        content.insertAdjacentElement("beforeend", myName);
+        content.insertAdjacentElement("beforeend", myCharacter);
+        myCharacter.insertAdjacentElement("beforeend", line);
+
+        var newLine3 = document.createTextNode(
+          "the last three letters in my name are:" +string[string.length-3]+ string[string.length-2] + string[string.length-1]
+          );
+        myCharacter.appendChild(newLine3);
+
+        let firstname = string.substring(0,7);
+        let lastname = string.substring(8,13);  
+        var length = firstname.length;
+        var length2 = lastname.length;
+        var total = length + length2;
+
+        myHeader.innerHTML = "Jonathan Chen's Lab 4 " + total;
       }
+
     </script>
-    <script src="main.js"></script>
+    
   </body>
 </html>
