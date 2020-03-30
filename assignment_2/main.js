@@ -1,3 +1,6 @@
+/* Sourced used:
+https://discourse.mozilla.org/c/mdn/learn */
+
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
 
