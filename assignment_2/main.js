@@ -1,5 +1,5 @@
 /* Sourced used:
-https://discourse.mozilla.org/c/mdn/learn */
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery */
 
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
@@ -17,7 +17,6 @@ newImage.onclick = function(a) {
     displayedImage.src = a.target.src;
     }
 }
-
 
 /* Wiring up the Darken/Lighten button */
 btn.onclick =function(){
