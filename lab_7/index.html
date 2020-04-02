@@ -34,11 +34,11 @@
       }).addTo(mymap);
 
       const marker = L.marker([38.9860, -76.9451]).addTo(mymap);
-      var popup = L.popup()
-      .setLatLng([38.9860, -76.9451])
-      .setContent("Mckeldin Library")
-      .setColor('red')
-      .openOn(mymap)
+      var popup = L.popup({
+        className:"custom-popup"})
+    .setLatLng([38.9860, -76.9451])
+    .setContent("McKeldin Library")
+    .openOn(mymap);
 
       /*Create the array */
 
@@ -1050,23 +1050,21 @@
     var numbers=Math.floor(Math.random()*999);
     if (randomNumbers.includes(numbers)){
         i--;}
-
         else{randomNumbers.push(numbers);
         }
       }
-
    
 /*Assign random number to location and get coordinates of that location */
 
     let randomList = [];
 for(let z=0; z<3; z++){
     randomList.push(locations[randomNumbers[z]].geocoded_column_1['coordinates'].reverse());
-    
 }
+
 const marker2 = L.marker(randomList[0]).addTo(mymap);
 const marker3 = L.marker(randomList[1]).addTo(mymap);
 const marker4 = L.marker(randomList[2]).addTo(mymap);
-      marker.bindPopup("<b>McKeldin Library</b>").openPopup;
+
     </script>
   </body>
 </html>

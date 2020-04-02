@@ -106,3 +106,11 @@ h3 {
 
 #map1 { height: 640px;
 width: 480px; }
+
+.custom-popup,.leaflet-popup-content-wrapper{ 
+  font-weight: bolder;
+  font-size: large;
+  line-height: 2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
