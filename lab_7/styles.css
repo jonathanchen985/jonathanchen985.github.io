@@ -102,4 +102,7 @@ h3 {
   top: 1px;
 }
 
-#mapid { height: 180px; }
+/*Start of CSS */
+
+#map1 { height: 640px;
+width: 480px; }
