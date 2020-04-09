@@ -10,18 +10,109 @@
       <div class="wrapper">
         <div class="header">Frontend Libraries: Charts Lab</div>
         <div class="content">
-          When your lab is done, this should be replaced with a useful chart full of food data.
+          <div id="chartContainer" style="height: 450px; width: 100%;"></div>
+           
         </div>
         <div class="footer">Let's eat out in the future!</div>
       </div>
     </div>
     <script>
-      fetch('./countries.json') // replace this with the food safety data set
-        .then((data) => data.json()) // this is an "implicit return" - we're returning the results of the Fetch request to the next step.
-        .then((data) => { // this is an explicit return. If I want my information to go further, I'll need to use the "return" keyword before the brackets close
+      fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json') // replace this with the food safety data set
+      .then((data) => data.json())
+        .then((data) => {
           console.log(data);
-          // return data; // <- this will pass the data to the next "then" statement when I'm ready.
-        })
+          return data; })
+          // this is an "explicit return" 
+            //Reducer
+          .then((data) => {
+            return data.reduce((c, current) => {
+              if (!c[current.category]){
+                c[current.category] = [];
+              }
+              c[current.category].push(current);
+              return c;
+            }, {});
+
+          })
+          .then((data) => {
+            console.log('new data', data);
+            return Object.entries(data).map((m, i) => {
+              console.log(m);
+              return {
+                y: m[1].length,
+                label: m[0],
+              };
+            });
+          })  
+          //Create the Chart
+          .then ((results) => {
+            console.log(results);
+            var chart = new CanvasJS.Chart("chartContainer", {
+	            animationEnabled: true,
+              	title: {
+		                    text: "Let's Find Somewhere to Eat"
+                    },
+                	axisX: {
+	                	interval: 1
+	                      },
+	              axisY: {
+	            	scaleBreaks: {
+			            type: "wavy",
+		            	customBreaks: [{
+				startValue: 80,
+				endValue: 210
+				},
+				{
+					startValue: 25,
+					endValue: 40
+				}
+		]}
+      },
+              
+      data: [{
+		type: "bar",
+		dataPoints: [
+    { label: "Carry-out", y:142 },
+    { label: "Fast Food", y:161 },
+    { label: "Public School", y:229 },
+    { label: "Hotel", y:9 },
+    { label: "N/A", y: 32},
+    { label: "Grocery Store", y:35},
+    { label: "Convenience Store", y:53 },
+    { label: "Full Service", y:142 },
+    { label: "Ice Cream", y:6 },
+    { label: "Bakery/Catering", y:1 },
+    { label: "Gas Station Store", y:9 },
+    { label: "College/University", y:40 },
+    { label: "Restaurant", y:29 },
+    { label: "Health Care Facility", y:8 },
+    { label: "Bar/Tavern/Lounge", y:6 },
+    { label: "Dollar Store", y:9 },
+    { label: "Bakery", y:10 },
+    { label: "Private School", y:12 },
+    { label: "Coffee Shop", y:4 },
+    { label: "Stadium/Amusement Park", y:16 },
+    { label: "Limited Service", y:6 },
+    { label: "Casino", y:3 },
+    { label: "Church/Temple/Mosque", y:8 },
+    { label: "Catering Only", y:6 },
+    { label: "Cafeteria ", y:4 },
+    { label: "Group Home", y:2 },
+    { label: "Meat/Poultry Market", y:3 },
+    { label: "Snack Bar/Concession Stand", y:6 },
+    { label: "Multiple Facilities", y:1 },
+    { label: "Pre-Packaged Only", y:1 },
+    { label: "Deli", y:3 },
+    { label: "Private Club", y:1 },
+    { label: "Fire/Community Hall", y:1 },
+    { label: "Banquet Hall/Bathroom", y:1 },
+    { label: "Seafood", y:1 },
+		]
+	}]
+}); 
+
+      chart.render();
+})
     </script>
   </body>
 </html>
