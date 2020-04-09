@@ -10,7 +10,7 @@
       <div class="wrapper">
         <div class="header">Frontend Libraries: Charts Lab</div>
         <div class="content">
-          <div id="chartContainer" style="height: 450px; width: 100%;"></div>
+          <div id="chartContainer" style="height: 480px; width: 100%;"></div>
            
         </div>
         <div class="footer">Let's eat out in the future!</div>
@@ -48,6 +48,7 @@
           .then ((results) => {
             console.log(results);
             var chart = new CanvasJS.Chart("chartContainer", {
+              backgroundColor: "#F5DEB3",
 	            animationEnabled: true,
               	title: {
 		                    text: "Let's Find Somewhere to Eat"
@@ -56,6 +57,10 @@
 	                	interval: 1
 	                      },
 	              axisY: {
+                  labelFontSize: 10,
+                  labelFontWeight: "normal",
+                  labelWrap: false,
+                  labelFontFamily: "tahoma",
 	            	scaleBreaks: {
 			            type: "wavy",
 		            	customBreaks: [{
@@ -70,9 +75,10 @@
       },
               
       data: [{
+        
 		type: "bar",
 		dataPoints: [
-    { label: "Carry-out", y:142 },
+    { label: "Carry-out", y:142, },
     { label: "Fast Food", y:161 },
     { label: "Public School", y:229 },
     { label: "Hotel", y:9 },
