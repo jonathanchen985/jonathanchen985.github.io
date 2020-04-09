@@ -54,29 +54,33 @@
 		                    text: "Let's Find Somewhere to Eat"
                     },
                 	axisX: {
-	                	interval: 1
-	                      },
-	              axisY: {
-                  labelFontSize: 10,
+                    labelFontSize: 12,
                   labelFontWeight: "normal",
                   labelWrap: false,
                   labelFontFamily: "tahoma",
+	                	interval: 1
+	                      },
+	              axisY: {
 	            	scaleBreaks: {
 			            type: "wavy",
 		            	customBreaks: [{
-				startValue: 80,
-				endValue: 210
+				startValue: 90,
+				endValue: 140
+        },
+        {
+				startValue: 160,
+				endValue: 220
 				},
 				{
 					startValue: 25,
-					endValue: 40
+					endValue: 30
 				}
 		]}
       },
               
       data: [{
-        
-		type: "bar",
+    type: "bar",
+    
 		dataPoints: [
     { label: "Carry-out", y:142, },
     { label: "Fast Food", y:161 },
