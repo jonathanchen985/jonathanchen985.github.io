@@ -18,8 +18,85 @@
     fetch('/api') // Rather than fetching from PG County, we're going to fetch from our own server.
       .then(res => res.json())
       .then(res => {
-        // Here's where your chart code should go.
+        return res;})
+        .then(res => {
+        var chart = new CanvasJS.Chart("chartContainer", {
+              backgroundColor: "#F5DEB3",
+	            animationEnabled: true,
+              	title: {
+		                    text: "Let's Find Somewhere to Eat"
+                    },
+                	axisX: {
+                    labelFontSize: 12,
+                  labelFontWeight: "normal",
+                  labelWrap: false,
+                  labelFontFamily: "tahoma",
+	                	interval: 1
+	                      },
+	              axisY: {
+	            	scaleBreaks: {
+			            type: "wavy",
+		            	customBreaks: [{
+				startValue: 90,
+				endValue: 140
+        },
+        {
+				startValue: 160,
+				endValue: 220
+				},
+				{
+					startValue: 25,
+					endValue: 30
+				}
+		]}
+      },
+              
+      data: [{
+    type: "bar",
+    
+		dataPoints: [
+    { label: "Carry-out", y:142, },
+    { label: "Fast Food", y:161 },
+    { label: "Public School", y:229 },
+    { label: "Hotel", y:9 },
+    { label: "N/A", y: 32},
+    { label: "Grocery Store", y:35},
+    { label: "Convenience Store", y:53 },
+    { label: "Full Service", y:142 },
+    { label: "Ice Cream", y:6 },
+    { label: "Bakery/Catering", y:1 },
+    { label: "Gas Station Store", y:9 },
+    { label: "College/University", y:40 },
+    { label: "Restaurant", y:29 },
+    { label: "Health Care Facility", y:8 },
+    { label: "Bar/Tavern/Lounge", y:6 },
+    { label: "Dollar Store", y:9 },
+    { label: "Bakery", y:10 },
+    { label: "Private School", y:12 },
+    { label: "Coffee Shop", y:4 },
+    { label: "Stadium/Amusement Park", y:16 },
+    { label: "Limited Service", y:6 },
+    { label: "Casino", y:3 },
+    { label: "Church/Temple/Mosque", y:8 },
+    { label: "Catering Only", y:6 },
+    { label: "Cafeteria ", y:4 },
+    { label: "Group Home", y:2 },
+    { label: "Meat/Poultry Market", y:3 },
+    { label: "Snack Bar/Concession Stand", y:6 },
+    { label: "Multiple Facilities", y:1 },
+    { label: "Pre-Packaged Only", y:1 },
+    { label: "Deli", y:3 },
+    { label: "Private Club", y:1 },
+    { label: "Fire/Community Hall", y:1 },
+    { label: "Banquet Hall/Bathroom", y:1 },
+    { label: "Seafood", y:1 },
+		]
+	}]
+}); 
+
+      chart.render();
       })
+      
   </script>
 </body>
 
