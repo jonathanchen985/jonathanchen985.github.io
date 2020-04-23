@@ -2,8 +2,8 @@
 
 import express from 'express';
 import fetch from 'node-fetch';
-// const sqlite3 = require('sqlite3').verbose(); // We're including a server-side version of SQLite, the in-memory SQL server.
-// const open = sqlite3.open; // We're including a server-side version of SQLite, the in-memory SQL server.
+ //const sqlite3 = require('sqlite3').verbose(); // We're including a server-side version of SQLite, the in-memory SQL server.
+ //const open = sqlite3.open; // We're including a server-side version of SQLite, the in-memory SQL server.
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import writeUser from './libraries/writeuser';
@@ -16,6 +16,14 @@ const dbSettings = {
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+const db= new sqlite3.Database(':memory:', (err) => {
+  if(err)
+{
+  return console.error('err.message');
+}
+console.log('Connected to the in-memory SQL database')
+})
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -59,13 +67,15 @@ app.route('/api')
       console.log(req.body);
       res.status('418').send('something went wrong, additionally i am a teapot')
     } else {
-      writeUser(req.body.name, dbSettings)
+      writeUser(req.body.name, ddbSettings)
       .then((result) => {
         console.log(result);
         res.send('your request was successful'); // simple mode
       })
     }
   })
+
+  
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
