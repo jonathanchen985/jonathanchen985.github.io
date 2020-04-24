@@ -30,6 +30,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
+
+
 function processDataForFrontEnd(req, res) {
   const baseURL = ''; // Enter the URL for the data you would like to retrieve here
 
