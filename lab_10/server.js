@@ -70,7 +70,7 @@ app.route('/api')
       writeUser(req.body.name, dbSettings)
       .then((result) =>{
         console.log(result);
-        res.send('your data was updated');
+        res.json('your data was updated');
       })
       .catch((err) => {
         console.log(err);
@@ -79,6 +79,18 @@ app.route('/api')
 
   }
   )
+//Get content from DB
+let sql = `SELECT DISTINCT Name name FROM api
+           ORDER BY name`;
+
+db.all(sql, [], (err, rows) => {
+  if (err) {
+    throw err;
+  }
+  rows.forEach((row) => {
+    console.log(row.name);
+  });
+});
 
 
 app.listen(port, () => {
