@@ -11,7 +11,7 @@
           <h1 class="header">POST and PUT lab - with Fetch</h1>
         </div>
         <div>
-          <form class="targetForm" id="labForm">
+          <form class="targetForm" id="labForm" >
             <label for="name">Name</label>
             <input type="text" id="name" name="name" />
 
@@ -22,10 +22,14 @@
             <label for="interests">Interests</label>
             <textarea id="interests" name="interests" rows="5" cols="33">
             What are your interests?
-            </textarea
-            ><br />
+            </textarea>
+            <br/>
             <button id="formBtn">Submit</button>
-          </form>
+            </form>
+            <form action="/api" method="get">
+              <button type="submit" formmethod="get">Click Me</button>
+            </form>
+            
         </div>
       </div>
     </div>
@@ -44,7 +48,8 @@
           },
           body: JSON.stringify(Object.fromEntries(formToSend)),
         })
-          .then((data) => data.text()) // note: we didn't send JSON, so there's no JSON to get.
+          .then((data) => data.text())
+            
           .then((txtresponse) => {
             console.log(txtresponse);
             btn.setAttribute("disabled", true);
@@ -56,6 +61,9 @@
 
       const formBtn = document.querySelector("#formBtn");
       formBtn.addEventListener("click", sendForm);
+      
+      
+      
     </script>
   </body>
 </html>
