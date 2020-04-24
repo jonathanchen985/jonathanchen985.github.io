@@ -16,7 +16,6 @@ const dbSettings = {
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 const db= new sqlite3.Database(':memory:', (err) => {
   if(err)
 {
@@ -30,29 +29,10 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
-
-
 function processDataForFrontEnd(req, res) {
-  const baseURL = ''; // Enter the URL for the data you would like to retrieve here
-
-  // Your Fetch API call starts here
-  // Note that at no point do you "return" anything from this function -
-  // it instead handles returning data to your front end at line 34.
-    fetch(baseURL)
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data);
-        res.send({ data: data }); // here's where we return data to the front end
-      })
-      .catch((err) => {
-        console.log(err);
-        res.redirect('/error');
-      });
 }
 
-// Syntax change - we don't want to repeat ourselves,
-// or we'll end up with spelling errors in our endpoints.
-// 
+//Different API requests
 app.route('/api')
   .get((req, res) => {
     // processDataForFrontEnd(req, res)
@@ -79,6 +59,8 @@ app.route('/api')
       });
     }
   })
+
+  //Put Request Method
   .put((req,res) =>{
     console.log("/api put request", req.body);
     if(!req.body.name){
@@ -88,17 +70,16 @@ app.route('/api')
       writeUser(req.body.name, dbSettings)
       .then((result) =>{
         console.log(result);
-        res.sesnd('your request was successful');
+        res.send('your data was updated');
       })
       .catch((err) => {
-        console.loog(err);
+        console.log(err);
       })
     }
 
   }
   )
 
-  
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
