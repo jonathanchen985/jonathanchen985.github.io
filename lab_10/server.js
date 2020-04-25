@@ -88,7 +88,7 @@ db.all(sql, [], (err, rows) => {
     throw err;
   }
   rows.forEach((row) => {
-    console.log(row.name);
+    res.json(name)
   });
 });
 
